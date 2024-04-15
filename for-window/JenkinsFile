@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
+    agent any
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
@@ -9,6 +9,11 @@ pipeline {
 
     stages {
         stage('Build') {
+            agent {
+                docker { 
+                    image 'maven:3.9.6-eclipse-temurin-17-alpine' 
+                }
+            }
             steps {
                 bat 'docker build -t darinpope/dp-alpine:latest .'
             }
