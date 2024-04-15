@@ -1,2 +1,2 @@
 #!/bin/bash
-docker push Cuong/dp-alpine:latest
+docker push cuongkhongle/dp-alpine:latest
